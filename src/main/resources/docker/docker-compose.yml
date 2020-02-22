@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  discount-service:
+    image: docker.pkg.github.com/betulcetinkaya/discount-service/${IMAGE_NAME}:${TAG}
+    container_name: discount-service
+    env_file: docker-compose.env
+    ports:
+      - 8081:8081
+    networks:
+        - services
+networks:
+  services:
+    external:
+      name: services
