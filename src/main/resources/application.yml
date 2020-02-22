@@ -8,7 +8,7 @@ spring.data.mongodb.authentication-database: admin
 logging.level.org.hibernate.SQL: DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 server:
-  port: ${PORT:8081}
+  port: ${PORT:8083}
 spring:
   application:
     name: discount-service

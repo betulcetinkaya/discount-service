@@ -5,7 +5,7 @@ services:
     container_name: discount-service
     env_file: docker-compose.env
     ports:
-      - 8081:8081
+      - 80813:8083
     networks:
         - services
 networks:
