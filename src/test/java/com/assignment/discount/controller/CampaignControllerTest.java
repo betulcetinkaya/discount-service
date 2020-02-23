@@ -50,7 +50,7 @@ public class CampaignControllerTest extends ControllerBaseTest {
     }
 
     @Test
-    public void testGetCampaign_SendId_GetACampaign() throws Exception {
+    public void testGetBestCampaign_SendId_GetBestCampaign() throws Exception {
         String categoryId = "CATEGORY-001";
         Campaign campaign = CampaignTestData.getCampaign();
         when(campaignService.findBestCampaign(anyString(), anyInt(), any(BigDecimal.class))).thenReturn(campaign);
