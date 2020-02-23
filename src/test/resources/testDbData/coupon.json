@@ -1,0 +1,8 @@
+[
+  {
+    "id": "1",
+    "minAmount": 200,
+    "discount": 50,
+    "discountType": "AMOUNT"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "mapper": "com.assignment.discount.domain.Campaign",
+    "name": "campaign",
+    "file": "campaign.json"
+  },
+  {
+    "mapper": "com.assignment.discount.domain.Coupon",
+    "name": "coupon",
+    "file": "coupon.json"
+  }
+]
