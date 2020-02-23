@@ -1,4 +1,4 @@
-package com.assignment.discount.repository.dataloader;
+package com.assignment.discount.dataloader;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

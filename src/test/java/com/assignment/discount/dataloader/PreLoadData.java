@@ -1,4 +1,4 @@
-package com.assignment.discount.repository.dataloader;
+package com.assignment.discount.dataloader;
 
 public class PreLoadData {
 
