@@ -39,7 +39,7 @@ public class CampaignRepositoryTest extends RepositoryBaseTest {
     public void testFindByCategoryId_SendCategoryId_ReturnCampaignList() {
         String categoryId = "Category1";
 
-        List<Campaign> campaigns = campaignRepository.findByCategoryId(categoryId);
+        List<Campaign> campaigns = campaignRepository.findByCategoryIdAndQuantity(categoryId, 5);
 
         Assert.assertEquals(2, campaigns.size());
         Assert.assertEquals(categoryId, campaigns.get(0).getCategoryId());

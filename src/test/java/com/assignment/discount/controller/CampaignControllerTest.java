@@ -13,11 +13,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -51,17 +51,17 @@ public class CampaignControllerTest extends ControllerBaseTest {
 
     @Test
     public void testGetCampaign_SendId_GetACampaign() throws Exception {
-        String campaignId = "CATEGORY-001";
-        List<Campaign> campaigns = CampaignTestData.getCampaignList();
-        when(campaignService.getCampaignsByCategoryId(campaignId)).thenReturn(campaigns);
+        String categoryId = "CATEGORY-001";
+        Campaign campaign = CampaignTestData.getCampaign();
+        when(campaignService.findBestCampaign(anyString(), anyInt(), any(BigDecimal.class))).thenReturn(campaign);
 
-        ResultActions resultActions = mockMvc.perform(get(baseAddress + "?categoryId=" + campaignId)
+        ResultActions resultActions = mockMvc.perform(get(baseAddress + "?categoryId=" + categoryId + "&quantity=1&amount=100")
                 .contentType(mediaType));
 
         resultActions.andExpect(status().isOk())
-                .andExpect(jsonPath("$.size()", is(3)));
+                .andExpect(jsonPath("$.id", is(campaign.getId())));
 
-        verify(campaignService).getCampaignsByCategoryId(anyString());
+        verify(campaignService).findBestCampaign(anyString(), anyInt(), any(BigDecimal.class));
     }
 
 

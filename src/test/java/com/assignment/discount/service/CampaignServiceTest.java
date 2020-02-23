@@ -15,10 +15,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -50,15 +50,18 @@ public class CampaignServiceTest {
     }
 
     @Test
-    public void testGetByCampaignId_SendCampaignId_ReturnCampaignList() {
-        String categoryId = "CAMPAIGN-001";
+    public void testFindBestCampaign_SendCampaignId_ReturnBestCampaign() {
+        String categoryId = "CATEGORY-001";
+        int quantity = 2;
+        BigDecimal amount = new BigDecimal(500);
         List<Campaign> campaigns = CampaignTestData.getCampaignList();
-        when(campaignRepository.findByCategoryId(anyString())).thenReturn(campaigns);
+        when(campaignRepository.findByCategoryIdAndQuantity(anyString(), anyInt())).thenReturn(campaigns);
 
-        List<Campaign> found = campaignService.getCampaignsByCategoryId(categoryId);
+        Campaign bestCampaign = campaignService.findBestCampaign(categoryId, quantity, amount);
 
-        verify(campaignRepository).findByCategoryId(anyString());
-        Assert.assertEquals(3, found.size());
+        verify(campaignRepository).findByCategoryIdAndQuantity(anyString(), anyInt());
+        Assert.assertNotNull(bestCampaign);
+        Assert.assertEquals("CAMPAIGN-001", bestCampaign.getId());
     }
 
 }

@@ -2,11 +2,11 @@ package com.assignment.discount.service;
 
 import com.assignment.discount.domain.Campaign;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 public interface CampaignService {
 
     Campaign create(Campaign campaign);
 
-    List<Campaign> getCampaignsByCategoryId(String categoryId);
+    Campaign findBestCampaign(String categoryId, int quantity, BigDecimal amount);
 }

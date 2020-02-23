@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/campaigns")
@@ -35,9 +34,11 @@ public class CampaignController {
     @GetMapping
     public
     @ResponseBody
-    ResponseEntity<List<Campaign>> getCampaignsByCategoryId(@RequestParam(value = "categoryId") String categoryId) {
-        List<Campaign> campaigns = campaignService.getCampaignsByCategoryId(categoryId);
-        return new ResponseEntity<>(campaigns, HttpStatus.OK);
+    ResponseEntity<Campaign> getBestCampaign(@RequestParam(value = "categoryId") String categoryId,
+                                                         @RequestParam(value = "quantity") int quantity,
+                                                         @RequestParam(value = "amount") BigDecimal amount) {
+        Campaign campaign = campaignService.findBestCampaign(categoryId, quantity, amount);
+        return new ResponseEntity<>(campaign, HttpStatus.OK);
     }
 
 }

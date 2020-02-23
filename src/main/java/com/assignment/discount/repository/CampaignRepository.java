@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface CampaignRepository extends MongoRepository<Campaign, String> {
 
-    @Query("{categoryId : ?0 })")
-    List<Campaign> findByCategoryId(String categoryId);
+    @Query("{categoryId : ?0 , minQuantity: { $lte: ?1 }})")
+    List<Campaign> findByCategoryIdAndQuantity(String categoryId, int quantity);
 
 
 

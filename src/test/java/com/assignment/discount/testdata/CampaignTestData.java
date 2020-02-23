@@ -17,13 +17,13 @@ public class CampaignTestData {
         campaign.setCategoryId("CATEGORY-001");
         campaign.setDiscount(new BigDecimal(50));
         campaign.setMinQuantity(3);
-        campaign.setDiscountType(DiscountType.AMOUNT);
+        campaign.setDiscountType(DiscountType.RATE);
         campaigns.add(campaign);
 
         Campaign campaign2 = new Campaign();
         campaign2.setId("CAMPAIGN-002");
         campaign2.setCategoryId("CATEGORY-001");
-        campaign2.setDiscount(new BigDecimal(100));
+        campaign2.setDiscount(new BigDecimal(200));
         campaign2.setMinQuantity(5);
         campaign2.setDiscountType(DiscountType.AMOUNT);
         campaigns.add(campaign2);
