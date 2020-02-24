@@ -2,6 +2,7 @@ package com.assignment.discount.domain;
 
 import com.assignment.discount.enums.DiscountType;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
@@ -21,6 +22,9 @@ public class Coupon {
 
     @NotNull(message = "{NotNull.Coupon.discountType}")
     private DiscountType discountType;
+
+    @Version
+    private Long version;
 
     public String getId() {
         return id;
