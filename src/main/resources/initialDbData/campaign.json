@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "categoryId": "Category 1",
+    "discount": 10,
+    "minQuantity": 2,
+    "discountType": "RATE"
+  },
+  {
+    "id": "2",
+    "categoryId": "Category 1",
+    "discount": 50,
+    "minQuantity": 3,
+    "discountType": "AMOUNT"
+  },
+  {
+    "id": "3",
+    "categoryId": "Category 3",
+    "discount": 100,
+    "minQuantity": 5,
+    "discountType": "AMOUNT"
+  }
+]
