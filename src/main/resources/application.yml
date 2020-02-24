@@ -34,6 +34,6 @@ ribbon:
 spring:
   profiles: test
 
-spring.data.mongodb.database: product-test-db
+spring.data.mongodb.database: discount-test-db
 
 
